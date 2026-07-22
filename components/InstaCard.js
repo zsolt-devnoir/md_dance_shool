@@ -17,6 +17,7 @@ export default function InstaCard({
   src,
   alt = '',
   width = 340,
+  ratio = 1, // fotó képaránya (szélesség / magasság); 1 = négyzet
   objectPosition = 'center',
   priority = false,
   className = '',
@@ -38,7 +39,7 @@ export default function InstaCard({
       </div>
 
       {/* Fotó */}
-      <div className="relative w-full aspect-square bg-gray-200">
+      <div className="relative w-full bg-gray-200" style={{ aspectRatio: ratio }}>
         {src && (
           <Image
             src={src}

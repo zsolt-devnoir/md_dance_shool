@@ -139,7 +139,7 @@ export default function Teachers() {
           return (
             <div
               key={i}
-              className="absolute left-0 top-0"
+              className="absolute left-0 top-0 pointer-events-none"
               style={{
                 width: CARD_W,
                 opacity,

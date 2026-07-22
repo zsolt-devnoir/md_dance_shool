@@ -1,6 +1,7 @@
 'use client'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Image from 'next/image'
 import { Instagram, Facebook, Youtube } from 'lucide-react'
 
 export default function Footer() {
@@ -8,50 +9,62 @@ export default function Footer() {
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
   return (
-    <footer id="elerhetoseg" className="bg-white border-t border-gray-100 py-14 px-4">
+    <footer id="elerhetoseg" className="relative bg-white overflow-hidden pt-16 pb-8 px-4">
+      {/* Fekete halftone pöttyök — bal felül */}
+      <img
+        src="/dots-black.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute select-none opacity-70"
+        style={{ top: -24, left: -16, width: 260 }}
+      />
+
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7 }}
-        className="max-w-2xl mx-auto flex flex-col items-center text-center gap-5"
+        className="relative max-w-3xl mx-auto flex flex-col items-center text-center gap-8"
       >
-        {/* Logo */}
-        <div className="flex flex-col items-center gap-1">
-          <div className="w-12 h-12 bg-black rounded-sm flex items-center justify-center">
-            <span className="font-black text-white text-lg">MD</span>
-          </div>
-          <span className="text-xs tracking-widest text-gray-400 uppercase mt-1">Dance School</span>
-        </div>
+        {/* Nagy logó középen */}
+        <Image
+          src="/canva/logo-md-black-trim.png"
+          alt="MD Dance School"
+          width={273}
+          height={219}
+          className="w-auto"
+          style={{ height: 140 }}
+        />
 
-        {/* Contact */}
-        <div className="text-sm text-gray-600 space-y-1">
+        {/* Elérhetőség */}
+        <div className="space-y-4 text-lg sm:text-xl text-gray-900">
           <p>
-            E-mail:{' '}
+            <span className="font-bold">E-mail:</span>{' '}
             <a
               href="mailto:masterdancetanciskola@gmail.com"
-              className="text-[#40CFD5] hover:underline"
+              className="underline underline-offset-2 hover:text-[#40CFD5] transition-colors"
             >
               masterdancetanciskola@gmail.com
             </a>
           </p>
           <p>
-            Tel:{' '}
-            <a href="tel:+36306336682" className="text-[#40CFD5] hover:underline">
+            <span className="font-bold">Tel.:</span>{' '}
+            <a
+              href="tel:+36306336682"
+              className="underline underline-offset-2 hover:text-[#40CFD5] transition-colors"
+            >
               +36 (30) 633-6682
             </a>
           </p>
         </div>
 
-        {/* Address */}
-        <p className="text-xs text-gray-500 max-w-xs leading-relaxed">
-          Astoria Stúdió: 5. Kerület, Semmelweis u. 1–3.<br />
-          (Astoria metró megállótól 3 percnyi sétára van,<br />
-          MD Dance Stúdió a Magyarok Házában a második emeleten van)
+        {/* Cím */}
+        <p className="text-lg sm:text-xl text-gray-900 leading-relaxed max-w-xl">
+          <span className="font-bold">Astoria Stúdió:</span> 5. Kerület, Semmelweis u. 1-3, – (Astoria metró megállótól 3 percnyi sétára van. MD Dance Stúdió a Magyarok házában a második emeleten van
         </p>
 
-        {/* Social icons */}
-        <div className="flex items-center gap-4">
+        {/* Közösségi ikonok — fekete kör */}
+        <div className="flex items-center gap-5">
           {[
             { Icon: Instagram, href: '#', label: 'Instagram' },
             { Icon: Facebook, href: '#', label: 'Facebook' },
@@ -61,34 +74,29 @@ export default function Footer() {
               key={label}
               href={href}
               aria-label={label}
-              className="w-9 h-9 rounded-full bg-gray-100 hover:bg-[#40CFD5] flex items-center justify-center text-gray-600 hover:text-black transition-colors duration-200"
+              className="w-12 h-12 rounded-full bg-black flex items-center justify-center text-white hover:bg-[#40CFD5] hover:text-black transition-colors duration-200"
             >
-              <Icon size={16} />
+              <Icon size={22} />
             </a>
           ))}
         </div>
 
-        {/* Payment methods */}
-        <div className="flex items-center gap-3 flex-wrap justify-center">
-          {['Barion', 'VISA', 'VISA (debit)', 'Mastercard', 'Maestro'].map((method) => (
-            <span
-              key={method}
-              className="text-xs text-gray-400 bg-gray-50 border border-gray-200 px-2 py-1 rounded"
-            >
-              {method}
-            </span>
-          ))}
-        </div>
-
-        {/* Legal */}
-        <div className="flex items-center gap-4 text-xs text-gray-400 mt-2">
-          <a href="#" className="hover:text-gray-600 transition-colors">Adatkezelési tájékoztató</a>
-          <span>·</span>
-          <a href="#" className="hover:text-gray-600 transition-colors">ÁSZF</a>
-          <span>·</span>
-          <a href="#" className="hover:text-gray-600 transition-colors">Cookie beállítások</a>
-        </div>
+        {/* Fizetési módok — kép */}
+        <Image
+          src="/canva/payment-methods.png"
+          alt="Elfogadott fizetési módok: Barion, VISA, VISA Electron, Mastercard, Maestro, American Express"
+          width={413}
+          height={50}
+          className="h-auto w-full max-w-[420px]"
+        />
       </motion.div>
+
+      {/* Jogi linkek — szétosztva a szélekre */}
+      <div className="relative max-w-6xl mx-auto mt-14 flex flex-wrap justify-between gap-4 text-base sm:text-lg text-gray-600">
+        <a href="#" className="hover:text-black transition-colors">Adatkezelési tájékoztató</a>
+        <a href="#" className="hover:text-black transition-colors">ÁSZF</a>
+        <a href="#" className="hover:text-black transition-colors">Cookie beállítások</a>
+      </div>
     </footer>
   )
 }
