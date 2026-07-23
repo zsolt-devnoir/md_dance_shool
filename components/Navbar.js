@@ -172,7 +172,7 @@ export default function Navbar() {
               background: "none",
               border: "none",
               cursor: "pointer",
-              color: "#fff",
+              color: "#111111",
               marginLeft: "auto",
               padding: 8,
             }}
@@ -192,7 +192,7 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -10 }}
             style={{
               position: "fixed",
-              top: 80,
+              top: 104,
               left: 0,
               right: 0,
               zIndex: 49,

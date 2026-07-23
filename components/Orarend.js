@@ -143,7 +143,7 @@ export default function Orarend() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.3 }}
-            className="grid md:grid-cols-2 gap-6 lg:gap-12 mt-10 sm:mt-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 mt-10 sm:mt-12"
           >
             <DayColumn title="Hétfő - Szerda" items={schedule[activeTab].hetfo_szerda} />
             <DayColumn title="Kedd - Csütörtök" items={schedule[activeTab].kedd_csutortok} />

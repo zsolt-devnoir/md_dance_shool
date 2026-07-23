@@ -16,7 +16,7 @@ export default function Footer() {
         alt=""
         aria-hidden="true"
         className="pointer-events-none absolute select-none opacity-70"
-        style={{ top: -24, left: -16, width: 260 }}
+        style={{ top: -20, left: -20, width: 180 }}
       />
 
       <motion.div

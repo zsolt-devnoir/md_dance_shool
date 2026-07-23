@@ -34,10 +34,10 @@ function FadeIn({ children, delay = 0, direction = "up", className = "" }) {
 export default function About() {
   return (
     <section id="rolunk" className="relative z-10">
-      <HalftoneDots style={{ top: 0, right: -210 }} zIndex={-1} />
+      <HalftoneDots className="hidden md:block" size={300} style={{ top: -40, right: -170 }} zIndex={-1} />
 
       <div className="py-20 sm:py-28 px-4 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Szöveg */}
           <div>
             <FadeIn delay={0}>
@@ -88,9 +88,9 @@ export default function About() {
               whileHover={{ y: -6, transition: { duration: 0.3 } }}
             >
               <HalftoneDots
-                style={{ bottom: -80, right: -40 }}
+                style={{ bottom: -55, right: -55 }}
                 zIndex={-1}
-                size={260}
+                size={170}
               />
               <InstaCard
                 src="/canva/about-group.jpg"

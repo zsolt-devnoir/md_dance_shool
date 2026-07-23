@@ -58,8 +58,8 @@ export default function Hero() {
         }}
       />
 
-      {/* ── Halftone dot pattern — bal alsó sarok, lélegző (kitágul/összehúzódik) fekete/cyan váltakozással ── */}
-      <HalftoneDots style={{ bottom: -210, left: 0 }} />
+      {/* ── Halftone dot pattern — bal alsó sarok, kisebb, alig lóg ki ── */}
+      <HalftoneDots size={260} style={{ bottom: -30, left: -20 }} />
 
       {/* ── WELCOME TO MD — fő cím, alulról csúszik be ── */}
       <div

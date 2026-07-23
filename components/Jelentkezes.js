@@ -68,7 +68,7 @@ export default function Jelentkezes() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Mezők — címke felül */}
-              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
                 {fields.map((f) => (
                   <div key={f.name} className={f.full ? 'sm:col-span-2' : ''}>
                     <label htmlFor={f.name} className="block text-[15px] text-gray-800 mb-2">

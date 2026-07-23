@@ -12,14 +12,14 @@ const teachers = [
   { src: '/canva/teacher-05-stool.jpg', alt: 'Tánctanár' },
 ]
 
-// 6 türkiz halftone-pötty a háttérben, kb. a designbeli helyeken.
+// Türkiz halftone-pöttyök — kisebbek, a szélekre húzva.
 const dots = [
-  { top: '3%', left: '32%', size: 250 },
-  { top: '24%', left: '0%', size: 210 },
-  { top: '55%', left: '4%', size: 170 },
-  { top: '9%', left: '56%', size: 190 },
-  { top: '20%', right: '0%', size: 290 },
-  { top: '52%', right: '6%', size: 175 },
+  { top: '5%', left: '-4%', size: 150 },
+  { top: '34%', left: '-5%', size: 125 },
+  { top: '66%', left: '-1%', size: 115 },
+  { top: '8%', right: '-4%', size: 165 },
+  { top: '40%', right: '-5%', size: 135 },
+  { top: '68%', right: '0%', size: 115 },
 ]
 
 const N = teachers.length
@@ -71,12 +71,14 @@ export default function Teachers() {
   }
 
   // reszponzív ív-paraméterek
-  const mobile = w < 720
-  const CARD_W = mobile ? 190 : 236
-  const RADIUS = mobile ? 470 : 660
-  const STEP = mobile ? 27 : 24 // fok két kártya között
-  const TOP_Y = mobile ? 200 : 240 // a felső kártya középpontjának y-ja
-  const AREA_H = mobile ? 490 : 610
+  const mobile = w < 768
+  const CARD_W = mobile ? Math.round(Math.min(w * 0.72, 300)) : 236
+  const cardH = CARD_W + 150 // közelítő kártyamagasság (négyzet fotó + chrome)
+  // mobilon nagy sugár + kis szög = enyhe ív (a középső kártya áll, a szomszédok kicsit döntve/lejjebb)
+  const RADIUS = mobile ? 2200 : 660
+  const STEP = mobile ? 7.5 : 24 // fok két kártya között
+  const TOP_Y = mobile ? 24 + cardH / 2 : 240 // a középső kártya középpontjának y-ja
+  const AREA_H = mobile ? cardH + 130 : 610
   const centerX = w / 2
   const centerY = TOP_Y + RADIUS
 
@@ -162,7 +164,7 @@ export default function Teachers() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.2 }}
         className="absolute inset-x-0 z-30 flex justify-center pointer-events-none"
-        style={{ bottom: mobile ? 18 : 28 }}
+        style={{ bottom: mobile ? 6 : 14 }}
       >
         <svg viewBox="0 0 640 140" className="w-[80%] max-w-[560px]">
           <defs>

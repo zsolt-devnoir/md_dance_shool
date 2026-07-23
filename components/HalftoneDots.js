@@ -7,10 +7,12 @@ export default function HalftoneDots({
   scaleDuration = 7,
   fadeDuration = 4,
   zIndex = 3,
+  className = "",
   style = {},
 }) {
   return (
     <motion.div
+      className={className}
       animate={{ scale: [1, scaleAmount, 1] }}
       transition={{ duration: scaleDuration, repeat: Infinity, ease: "easeInOut" }}
       style={{
